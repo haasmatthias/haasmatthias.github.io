@@ -58,3 +58,14 @@
 .projects-paused .tm-caret{animation:none;opacity:0}
 @media(max-width:760px){.team-motion{padding:45px 6vw 10px}.tm-flow{grid-template-columns:1fr;gap:12px;padding-left:24px}.tm-line{left:5px;right:auto;top:8px;bottom:8px;width:2px;height:auto}.tm-dot{left:-5px;top:0}.tm-step{min-height:0;padding:14px 16px}.tm-step strong{font-size:16px}.tm-result{grid-template-columns:1fr}.tm-proof{justify-self:start;white-space:normal}.tm-out{font-size:17px}}
 @media(max-width:900px){.mast nav a[href="#team"]{display:none}}
+
+/* 14.11.2026 (Claude): Werdegang-Leiste + Call-Button (Wunsch MH) */
+.timeline{list-style:none;margin:34px 0 28px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--line)}
+.timeline li{position:relative;padding-top:26px}
+.timeline li::before{content:"";position:absolute;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.timeline span{display:block;font:11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.timeline strong{display:block;font-size:17px;margin:4px 0 6px;font-weight:600}
+.timeline small{display:block;font-size:13px;line-height:1.45;color:var(--muted)}
+.contact-links .call-link{display:inline-block;background:var(--accent);color:#16251c;border:1px solid var(--accent);border-radius:999px;padding:11px 18px;font-weight:600;font-size:15px;text-decoration:none}
+@media(max-width:900px){.timeline{grid-template-columns:1fr;gap:18px;padding-left:28px}.timeline::before{left:6px;right:auto;top:4px;bottom:4px;width:2px;height:auto}.timeline li{padding-top:0}.timeline li::before{left:-28px;top:3px}}
