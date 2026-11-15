@@ -3,7 +3,7 @@ const introDialog=document.querySelector('.intro-dialog');const introVideo=intro
 
 (()=>{const root=document.querySelector('.team-motion');if(!root)return;
 const D=[
-{ask:'Can this project carry its debt?',steps:['Project assumptions: costs, prices, financing','One connected model: debt service, DSCR tests, four scenarios','A case lenders and investors can follow'],out:'Change one assumption and see what is left for lenders and investors, with every figure linked to its source.',proof:'Atremeta financial model',href:'atremeta.html'},
+{ask:'Can this project carry its debt?',steps:['Project assumptions: costs, prices, financing','One linked model set: debt service, DSCR tests, four scenarios','A case lenders and investors can follow'],out:'Change one assumption and see what is left for lenders and investors, with every figure linked to its source.',proof:'Atremeta financial model',href:'atremeta.html'},
 {ask:'Is this budget model safe to present?',steps:['Your budget workbook','AI traces links, formula loops and missing results','The exact cells to review'],out:'Before the management meeting, a short list of what to check. A person still signs off.',proof:'JARVIS',href:'jarvis.html'},
 {ask:'Which investors actually fit this round?',steps:['Your criteria: ticket size, mandate, stage','AI screens candidates, every fact with a source','A shortlist you can defend'],out:'Reasons for and against every name, plus what is still unknown, before anyone reaches out.',proof:'Investor Finder',href:'investor-screening.html'}];
 const tabs=[...root.querySelectorAll('[data-tm]')],ask=root.querySelector('.tm-asktext'),stepEls=[...root.querySelectorAll('.tm-step')],res=root.querySelector('.tm-result'),out=root.querySelector('.tm-out'),proof=root.querySelector('.tm-proof'),proofName=proof.querySelector('b'),dot=root.querySelector('.tm-dot'),bar=root.querySelector('.tm-progress i');
@@ -15,9 +15,10 @@ function show(i,animate){clear();cur=i;const d=D[i];
 tabs.forEach((t,n)=>{t.setAttribute('aria-selected',String(n===i));t.tabIndex=n===i?0:-1;});
 stepEls.forEach((s,n)=>s.querySelector('strong').textContent=d.steps[n]);out.textContent=d.out;proofName.textContent=d.proof;proof.href=d.href;
 if(!animate){ask.textContent=d.ask;stepEls.forEach(s=>s.classList.add('on'));res.classList.add('on');return;}
-ask.textContent='';stepEls.forEach(s=>s.classList.remove('on'));res.classList.remove('on');
-const chars=[...d.ask];chars.forEach((c,n)=>at(n*30,()=>{ask.textContent+=c;}));
-const t0=chars.length*30+250,v=matchMedia('(max-width:760px)').matches;
+stepEls.forEach(s=>s.classList.remove('on'));res.classList.remove('on');
+const v=matchMedia('(max-width:760px)').matches,chars=[...d.ask];
+if(v){ask.textContent=d.ask;}else{ask.textContent='';chars.forEach((c,n)=>at(n*30,()=>{ask.textContent+=c;}));}
+const t0=(v?0:chars.length*30)+250;
 at(t0,()=>{dot.style.opacity=1;});
 anims.push(dot.animate(v?[{top:'0%'},{top:'calc(100% - 12px)'}]:[{left:'0%'},{left:'calc(100% - 12px)'}],{duration:2300,delay:t0,fill:'both',easing:'cubic-bezier(.5,0,.3,1)'}));
 stepEls.forEach((s,n)=>at(t0+n*1000,()=>s.classList.add('on')));
