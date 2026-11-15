@@ -72,3 +72,7 @@
 
 /* 14.11.2026 (Claude): Recruiter-Panel – Kontakt-Fakten */
 .compact-contact .contact-facts{margin-top:-4px;font-size:15px;line-height:1.5;color:var(--muted)}
+
+/* 14.11.2026 (Claude): Recruiter-Panel Runde 2 */
+.contact-links .phone-link{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:15px;text-decoration:none}
+@media(max-width:760px){.intro-badge{display:none}}
